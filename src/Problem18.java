@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * By starting at the top of the triangle below and moving to adjacent numbers
@@ -25,7 +24,6 @@ public class Problem18 {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> rows = readFile(System.getProperty("user.dir")
                 + "/external/problem18.txt");
-        List<Integer> paths = new ArrayList<Integer>();
 
         for(int i = (rows.size() - 1); i >= 0; i--) {
             ArrayList<Integer> totalList = new ArrayList<Integer>();
