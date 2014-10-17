@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,31 +23,52 @@ import java.util.List;
 public class Problem18 {
 
     public static void main(String[] args) {
-        List<LinkedList<Integer>> rows = readFile(System.getProperty("user.dir")
+        ArrayList<ArrayList<Integer>> rows = readFile(System.getProperty("user.dir")
                 + "/external/problem18.txt");
-        List<Long> paths = new LinkedList<Long>();
-        for(LinkedList<Integer> row : rows) {
-            List<Integer> rowPath = new LinkedList<Integer>();
-            for(int j : row) {
-                
+        List<Integer> paths = new ArrayList<Integer>();
+
+        for(int i = (rows.size() - 1); i >= 0; i--) {
+            ArrayList<Integer> totalList = new ArrayList<Integer>();
+
+            for(int j = 0; j < (rows.get(i).size() - 1); j++) {
+                totalList.add(rows.get(i).get(j) + rows.get(i-1).get(j));
+                totalList.add(rows.get(i).get(j+1) + rows.get(i-1).get(j));
+            }
+
+            ArrayList<Integer> nextRow = new ArrayList<Integer>();
+
+            for(int t = 0; t < totalList.size(); t += 2) {
+                if(totalList.get(t) >= totalList.get(t+1)) {
+                    nextRow.add(totalList.get(t));
+                } else {
+                    nextRow.add(totalList.get(t+1));
+                }
+            }
+
+            if(i != 0) {
+                rows.set((i - 1), nextRow);
             }
         }
+
+        System.out.println(rows.get(0).get(0));
     }
 
-    public static List<LinkedList<Integer>> readFile(String file) {
-        List<LinkedList<Integer>> rows = new LinkedList<LinkedList<Integer>>();
+    public static ArrayList<ArrayList<Integer>> readFile(String file) {
+        ArrayList<ArrayList<Integer>> rows = new ArrayList<ArrayList<Integer>>();
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
+
             while((line = br.readLine()) != null) {
-                LinkedList<Integer> r = new LinkedList<Integer>();
+                ArrayList<Integer> r = new ArrayList<Integer>();
                 String[] numbers = line.split("\\s");
                 for(String n : numbers) {
                     r.add(Integer.parseInt(n));
                 }
                 rows.add(r);
             }
+
             br.close();
         } catch(IOException e) {
             System.out.println(e.getMessage());
