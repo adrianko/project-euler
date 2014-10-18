@@ -49,7 +49,7 @@ public class Problem23 {
                 abundant.add(n);
             }
         }
-        
+
         Set<Integer> abundantSums = new TreeSet<Integer>();
         for (int i : abundant) {
             for (int j : abundant) {
