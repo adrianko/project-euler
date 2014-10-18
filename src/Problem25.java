@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 /**
  * The Fibonacci sequence is defined by the recurrence relation:
  *
@@ -14,22 +16,16 @@
 public class Problem25 {
 
     public static void main(String[] args) {
-        long t1 = 0;
-        long t2 = 0;
-        Long c = 0L;
-        int i = 0;
+        BigInteger t1 = BigInteger.valueOf(2L);
+        BigInteger t2 = BigInteger.ONE;
+        BigInteger c = BigInteger.ZERO;
+        int i = 3;
 
         while (c.toString().length() < 1000) {
             i++;
-            if (i == 1) {
-                t2 = 1;
-            } else if (i == 2) {
-                t1 = 2;
-            } else {
-                c = t1 + t2;
-                t2 = t1;
-                t1 = c;
-            }
+            c = t1.add(t2);
+            t2 = t1;
+            t1 = c;
         }
 
         System.out.println(i);
