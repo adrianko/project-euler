@@ -59,7 +59,7 @@ public class Problem23 {
 
         long abTotal = 0;
         for (int i = 1; i <= 28123; i++) {
-            if(!abundantSums.contains(i)) {
+            if (!abundantSums.contains(i)) {
                 abTotal += (long) i;
             }
         }

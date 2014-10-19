@@ -23,13 +23,13 @@ public class Problem19 {
     public static void main(String[] args) {
         int count = 0;
         int dow = 0;
-        for(int year = 1900; year <= 2000; year++) {
-            for(int month = 1; month <= 12; month++) {
-                for(int day = 1; day <= days(month, year); day++) {
+        for (int year = 1900; year <= 2000; year++) {
+            for (int month = 1; month <= 12; month++) {
+                for (int day = 1; day <= days(month, year); day++) {
                     dow++;
 
-                    if(dow % 7 == 0) {
-                        if(year >= 1901 && year <= 2000 && day == 1) {
+                    if (dow % 7 == 0) {
+                        if (year >= 1901 && year <= 2000 && day == 1) {
                             count++;
                         }
 
@@ -46,12 +46,12 @@ public class Problem19 {
         List<Integer> smaller = Arrays.asList(9, 4, 6, 11);
         List<Integer> larger = Arrays.asList(1, 3, 5, 8, 10, 12);
 
-        if(smaller.contains(month)) {
+        if (smaller.contains(month)) {
             return 30;
-        } else if(larger.contains(month)) {
+        } else if (larger.contains(month)) {
             return 31;
         } else {
-            if(leapYear(year)) {
+            if (leapYear(year)) {
                 return 29;
             }
 
@@ -60,13 +60,13 @@ public class Problem19 {
     }
 
     public static boolean leapYear(int year) {
-       if(year % 100 == 0) {
-           return (year % 400 == 0);
-       } else if(year % 4 == 0) {
-           return true;
-       }
+        if (year % 100 == 0) {
+            return (year % 400 == 0);
+        } else if (year % 4 == 0) {
+            return true;
+        }
 
-       return false;
+        return false;
     }
 
 }

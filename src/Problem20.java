@@ -11,7 +11,7 @@ import java.math.BigInteger;
 public class Problem20 {
 
     public static BigInteger factorial(int n) {
-        if(n == 1) {
+        if (n == 1) {
             return BigInteger.valueOf(1);
         }
 
@@ -23,7 +23,7 @@ public class Problem20 {
         String resultS = String.valueOf(result);
 
         int total = 0;
-        for(char r : resultS.toCharArray()) {
+        for (char r : resultS.toCharArray()) {
             total += Character.getNumericValue(r);
         }
 

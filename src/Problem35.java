@@ -13,13 +13,13 @@ import java.util.Set;
 public class Problem35 {
 
     public static boolean isPrime(int n) {
-        if(n <= 3) {
+        if (n <= 3) {
             return n >= 2;
-        } else if(n % 2 == 0 || n % 3 == 0) {
+        } else if (n % 2 == 0 || n % 3 == 0) {
             return false;
         } else {
-            for(int i = 5; i < (Math.sqrt(n) + 1); i+= 6) {
-                if(n % i == 0 || n % (i + 2) == 0) {
+            for (int i = 5; i < (Math.sqrt(n) + 1); i += 6) {
+                if (n % i == 0 || n % (i + 2) == 0) {
                     return false;
                 }
             }
@@ -29,7 +29,7 @@ public class Problem35 {
     }
 
     public static int factorial(int n) {
-        if(n == 1) {
+        if (n == 1) {
             return 1;
         }
 
@@ -38,13 +38,13 @@ public class Problem35 {
 
     public static void main(String[] args) {
         Set<Integer> allPrimes = new HashSet<Integer>();
-        for(int i = 2; i < 1000000; i++) {
-            if(isPrime(i)) {
+        for (int i = 2; i < 1000000; i++) {
+            if (isPrime(i)) {
                 allPrimes.add(i);
             }
         }
 
-        for(int p : allPrimes) {
+        for (int p : allPrimes) {
             char[] pStr = String.valueOf(p).toCharArray();
             int possPerms = factorial(pStr.length);
 

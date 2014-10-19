@@ -25,24 +25,24 @@ public class Problem14 {
         TreeMap<Integer, ArrayList<Integer>> chainLength =
                 new TreeMap<Integer, ArrayList<Integer>>();
 
-        for(int i = 1; i < 1000000; i++) {
+        for (int i = 1; i < 1000000; i++) {
             long r = i;
             int length = 0;
 
-            while(r > 0) {
-                if(r % 2 == 0) {
+            while (r > 0) {
+                if (r % 2 == 0) {
                     r = r / 2;
                 } else {
                     r = (r * 3) + 1;
                 }
                 length++;
 
-                if(r == 1) {
+                if (r == 1) {
                     break;
                 }
             }
 
-            if(!chainLength.containsKey(length)) {
+            if (!chainLength.containsKey(length)) {
                 chainLength.put(length, new ArrayList<Integer>());
             }
 

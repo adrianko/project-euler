@@ -7,9 +7,9 @@ import java.util.ArrayList;
  * By starting at the top of the triangle below and moving to adjacent numbers
  * on the row below, the maximum total from top to bottom is 23.
  *
- *    3
- *   7 4
- *  2 4 6
+ * 3
+ * 7 4
+ * 2 4 6
  * 8 5 9 3
  *
  * Find the maximum total from top to bottom in triangle.txt (right click
@@ -28,25 +28,25 @@ public class Problem67 {
         ArrayList<ArrayList<Integer>> rows = readFile(System.getProperty("user.dir")
                 + "/external/problem67.txt");
 
-        for(int i = (rows.size() - 1); i >= 0; i--) {
+        for (int i = (rows.size() - 1); i >= 0; i--) {
             ArrayList<Integer> totalList = new ArrayList<Integer>();
 
-            for(int j = 0; j < (rows.get(i).size() - 1); j++) {
-                totalList.add(rows.get(i).get(j) + rows.get(i-1).get(j));
-                totalList.add(rows.get(i).get(j+1) + rows.get(i-1).get(j));
+            for (int j = 0; j < (rows.get(i).size() - 1); j++) {
+                totalList.add(rows.get(i).get(j) + rows.get(i - 1).get(j));
+                totalList.add(rows.get(i).get(j + 1) + rows.get(i - 1).get(j));
             }
 
             ArrayList<Integer> nextRow = new ArrayList<Integer>();
 
-            for(int t = 0; t < totalList.size(); t += 2) {
-                if(totalList.get(t) >= totalList.get(t+1)) {
+            for (int t = 0; t < totalList.size(); t += 2) {
+                if (totalList.get(t) >= totalList.get(t + 1)) {
                     nextRow.add(totalList.get(t));
                 } else {
-                    nextRow.add(totalList.get(t+1));
+                    nextRow.add(totalList.get(t + 1));
                 }
             }
 
-            if(i != 0) {
+            if (i != 0) {
                 rows.set((i - 1), nextRow);
             }
         }
@@ -61,17 +61,17 @@ public class Problem67 {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 ArrayList<Integer> r = new ArrayList<Integer>();
                 String[] numbers = line.split("\\s");
-                for(String n : numbers) {
+                for (String n : numbers) {
                     r.add(Integer.parseInt(n));
                 }
                 rows.add(r);
             }
 
             br.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 

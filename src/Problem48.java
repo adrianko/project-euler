@@ -12,12 +12,12 @@ public class Problem48 {
     public static void main(String[] args) {
         List<BigInteger> totals = new LinkedList<BigInteger>();
 
-        for(Integer i = 1; i <= 1000; i++) {
+        for (Integer i = 1; i <= 1000; i++) {
             totals.add(new BigInteger(i.toString()).pow(i));
         }
 
         BigInteger total = BigInteger.valueOf(0);
-        for(BigInteger t : totals) {
+        for (BigInteger t : totals) {
             total = total.add(t);
         }
 

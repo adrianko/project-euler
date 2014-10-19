@@ -29,10 +29,10 @@ public class Problem22 {
         Collections.sort(namesSorted);
         long score = 0;
 
-        for(String name : namesSorted) {
+        for (String name : namesSorted) {
             int wordScore = 0;
 
-            for(char letter : name.toCharArray()) {
+            for (char letter : name.toCharArray()) {
                 wordScore += (alphabet.indexOf(letter) + 1);
             }
 
@@ -49,9 +49,9 @@ public class Problem22 {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
-            String[] namesSplit =  line.split(",");
+            String[] namesSplit = line.split(",");
 
-            for(String n : namesSplit) {
+            for (String n : namesSplit) {
                 String nameClean = n.replaceAll("\"", "");
                 names.add(nameClean);
             }
