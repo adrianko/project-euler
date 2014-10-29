@@ -20,7 +20,7 @@ public class Problem38 {
     public static void main(String[] args) {
         int largest = 0;
 
-        for(int j = 1; j <= 10000; j++) {
+        for (int j = 1; j <= 10000; j++) {
             String pandigital = "";
             int i = 0;
 
@@ -30,15 +30,15 @@ public class Problem38 {
 
             if (pandigital.length() == 9) {
                 boolean valid = true;
-                for(int k = 1; k <= 9; k++) {
-                    if(!pandigital.contains(Integer.toString(k))) {
+                for (int k = 1; k <= 9; k++) {
+                    if (!pandigital.contains(Integer.toString(k))) {
                         valid = false;
                         break;
                     }
                 }
 
-                if(valid) {
-                    if(Integer.parseInt(pandigital) > largest) {
+                if (valid) {
+                    if (Integer.parseInt(pandigital) > largest) {
                         largest = Integer.parseInt(pandigital);
                     }
                 }

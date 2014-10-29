@@ -13,7 +13,7 @@ public class Problem52 {
         boolean found = false;
         int i = 0;
 
-        while(!found) {
+        while (!found) {
             i++;
             found = true;
 
@@ -21,12 +21,12 @@ public class Problem52 {
             Arrays.sort(iC);
             String iS = String.valueOf(iC);
 
-            for(int j = 2; j <= 6; j++) {
+            for (int j = 2; j <= 6; j++) {
                 char[] d = Integer.toString(j * i).toCharArray();
                 Arrays.sort(d);
                 String p = String.valueOf(d);
 
-                if(!iS.equals(p)) {
+                if (!iS.equals(p)) {
                     found = false;
                     break;
                 }

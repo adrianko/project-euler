@@ -9,12 +9,12 @@ public class Problem36 {
 
     public static void main(String[] args) {
         int total = 0;
-        for(int i = 1; i < 1000000; i++) {
+        for (int i = 1; i < 1000000; i++) {
             String n = String.valueOf(i);
             String b = Integer.toBinaryString(i);
 
-            if(new StringBuffer(n).reverse().toString().equals(n)
-            && new StringBuffer(b).reverse().toString().equals(b)) {
+            if (new StringBuffer(n).reverse().toString().equals(n)
+                    && new StringBuffer(b).reverse().toString().equals(b)) {
                 total += i;
             }
         }
@@ -22,7 +22,6 @@ public class Problem36 {
         System.out.println(total);
 
     }
-
 
 
 }

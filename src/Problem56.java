@@ -10,19 +10,19 @@ import java.math.BigInteger;
  */
 public class Problem56 {
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         int largest = 0;
 
-        for(int a = 1; a < 100; a++) {
-            for(int b = 1; b< 100; b++) {
+        for (int a = 1; a < 100; a++) {
+            for (int b = 1; b < 100; b++) {
                 String pow = BigInteger.valueOf(a).pow(b).toString();
 
                 int total = 0;
-                for(char d : pow.toCharArray()) {
+                for (char d : pow.toCharArray()) {
                     total += Character.getNumericValue(d);
                 }
 
-                if(total > largest) {
+                if (total > largest) {
                     largest = total;
                 }
 

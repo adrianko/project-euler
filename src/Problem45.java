@@ -19,14 +19,14 @@ public class Problem45 {
         TreeSet<Long> p = new TreeSet<Long>();
         TreeSet<Long> h = new TreeSet<Long>();
 
-        for(long n = 1; n <= 100000; n++) {
+        for (long n = 1; n <= 100000; n++) {
             t.add((n * (n + 1)) / 2);
             p.add((n * ((3 * n) - 1)) / 2);
             h.add(n * ((2 * n) - 1));
         }
 
-        for(long n : h) {
-            if(p.contains(n) && t.contains(n) && n > 40755L) {
+        for (long n : h) {
+            if (p.contains(n) && t.contains(n) && n > 40755L) {
                 System.out.println(n);
             }
         }
