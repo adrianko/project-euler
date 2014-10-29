@@ -30,11 +30,13 @@ public class Problem26 {
     public static void main(String[] args) {
         Map<Integer, BigDecimal> fractions = new HashMap<Integer, BigDecimal>();
 
+        /*
         for (int i = 2; i <= 1000; i++) {
             fractions.put(i, BigDecimal.valueOf(i).pow(-1, new MathContext(1000)));
         }
+        */
 
-        //fractions.put(1, BigDecimal.valueOf(0.0001234567567567567567567));
+        fractions.put(1, BigDecimal.valueOf(0.000123456756756756756756756));
         int allMax = 0;
         for (Map.Entry<Integer, BigDecimal> p : fractions.entrySet()) {
             String decimal = p.getValue().toString().substring(2);
@@ -43,10 +45,10 @@ public class Problem26 {
             for (int i = 0; i < decimal.length(); i++) {
                 String decimalSub = decimal.substring(i);
                 String repeat = "";
-
+                System.out.println("\nNext");
                 for (char c : decimalSub.toCharArray()) {
                     repeat += c;
-
+                    System.out.println(repeat);
                     Pattern pattern = Pattern.compile(repeat);
                     Matcher m = pattern.matcher(decimalSub);
                     for (int j = repeat.length(); j <= Math.floor(decimalSub.length() / repeat.length()); j += repeat.length()) {
