@@ -40,7 +40,7 @@ public class Problem26 {
             String decimal = p.getValue().toString().substring(2);
 
             int max = 0;
-            for(int i = 0; i < decimal.length(); i++) {
+            for (int i = 0; i < decimal.length(); i++) {
                 String decimalSub = decimal.substring(i);
                 String repeat = "";
 
@@ -49,8 +49,8 @@ public class Problem26 {
 
                     Pattern pattern = Pattern.compile(repeat);
                     Matcher m = pattern.matcher(decimalSub);
-                    for(int j = repeat.length(); j <= Math.floor(decimalSub.length() / repeat.length()); j += repeat.length()) {
-                        if((i+j) < decimalSub.length()) {
+                    for (int j = repeat.length(); j <= Math.floor(decimalSub.length() / repeat.length()); j += repeat.length()) {
+                        if ((i + j) < decimalSub.length()) {
                             if (m.find(i + j)) {
                                 if (max < repeat.length()) {
                                     max = repeat.length();
@@ -61,8 +61,8 @@ public class Problem26 {
                 }
             }
 
-            System.out.println("Max length: "+max);
-            if(allMax < max) {
+            System.out.println("Max length: " + max);
+            if (allMax < max) {
                 allMax = max;
             }
         }

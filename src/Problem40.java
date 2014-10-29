@@ -19,21 +19,21 @@ public class Problem40 {
         String df = "";
         int i = 0;
         List<Integer> required = Arrays.asList(
-            1,
-            10,
-            100,
-            1000,
-            10000,
-            100000,
-            1000000
+                1,
+                10,
+                100,
+                1000,
+                10000,
+                100000,
+                1000000
         );
 
-        while(df.length() <= 1000000) {
+        while (df.length() <= 1000000) {
             df += String.valueOf(++i);
         }
 
         int total = 1;
-        for(int pos : required) {
+        for (int pos : required) {
             total *= Character.getNumericValue(df.charAt(pos - 1));
         }
 
