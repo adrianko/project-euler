@@ -61,11 +61,9 @@ public class Problem55 {
         int count = 0;
 
         for (int i = 1; i < 10000; i++) {
-            if (palindrome(
-                    BigInteger.valueOf(i),
-                    reverse(BigInteger.valueOf(i)),
-                    0
-            ) == 0) {
+            BigInteger iBI = BigInteger.valueOf(i);
+            
+            if (palindrome(iBI, reverse(iBI), 0) == 0) {
                 count++;
             }
         }
