@@ -32,7 +32,7 @@ public class Problem35 {
         Set<Integer> rotations = new HashSet<>();
         String nS = Integer.toString(n);
 
-        for(int i = 0; i < nS.length(); i++) {
+        for (int i = 0; i < nS.length(); i++) {
             nS = nS.substring(1) + nS.charAt(0);
             rotations.add(Integer.parseInt(nS));
         }
@@ -47,15 +47,15 @@ public class Problem35 {
             if (isPrime(i)) {
                 boolean prime = true;
 
-                for(int j : rotate(i)) {
-                    if(!isPrime(j)) {
+                for (int j : rotate(i)) {
+                    if (!isPrime(j)) {
                         prime = false;
                         break;
                     }
                 }
 
-                if(prime) {
-                   count++;
+                if (prime) {
+                    count++;
                 }
             }
         }

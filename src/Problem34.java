@@ -10,20 +10,20 @@ public class Problem34 {
 
     public static void main(String[] args) {
         int count = 0;
-        for(int i = 3; i <= 20000000; i++) {
+        for (int i = 3; i <= 20000000; i++) {
             char[] iC = Integer.toString(i).toCharArray();
 
             long total = 0;
-            for(char d : iC) {
+            for (char d : iC) {
                 int n = Character.getNumericValue(d);
-                if(n > 0) {
+                if (n > 0) {
                     total += factorial(n);
                 } else {
                     total += 1;
                 }
             }
 
-            if(total == i) {
+            if (total == i) {
                 count += total;
             }
         }

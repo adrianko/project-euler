@@ -16,32 +16,32 @@ public class Problem37 {
 
     public static void main(String[] args) {
         int total = 0;
-        for(int i : primeSieve(1000000)) {
-            if(i < 10) {
+        for (int i : primeSieve(1000000)) {
+            if (i < 10) {
                 continue;
             }
 
-            if(isPrime(i)) {
+            if (isPrime(i)) {
                 boolean flag = true;
-                for(int j = 1; j < Integer.toString(i).length(); j++) {
-                    if(!isPrime((int) Math.floor(i / Math.pow(10, j)))) {
+                for (int j = 1; j < Integer.toString(i).length(); j++) {
+                    if (!isPrime((int) Math.floor(i / Math.pow(10, j)))) {
                         flag = false;
                         break;
                     }
                 }
 
-                if(!flag) {
+                if (!flag) {
                     continue;
                 }
 
-                for(int j = Integer.toString(i).length(); j >= 1; j--) {
-                    if(!isPrime((int) (i % Math.pow(10, j)))) {
+                for (int j = Integer.toString(i).length(); j >= 1; j--) {
+                    if (!isPrime((int) (i % Math.pow(10, j)))) {
                         flag = false;
                         break;
                     }
                 }
 
-                if(flag) {
+                if (flag) {
                     total += i;
                 }
             }
@@ -70,20 +70,20 @@ public class Problem37 {
         boolean[] numberList = new boolean[limit + 1];
         TreeSet<Integer> primeList = new TreeSet<>();
 
-        for(int i = 2; i <= limit; i++) {
+        for (int i = 2; i <= limit; i++) {
             numberList[i] = true;
         }
 
-        for(int i = 2; i * i <= limit; i++) {
-            if(numberList[i]) {
-                for(int j = i; i * j <= limit; j++) {
+        for (int i = 2; i * i <= limit; i++) {
+            if (numberList[i]) {
+                for (int j = i; i * j <= limit; j++) {
                     numberList[i * j] = false;
                 }
             }
         }
 
-        for(int i = 2; i <= limit; i++) {
-            if(numberList[i]) {
+        for (int i = 2; i <= limit; i++) {
+            if (numberList[i]) {
                 primeList.add(i);
             }
         }
