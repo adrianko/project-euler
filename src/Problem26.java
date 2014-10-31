@@ -2,8 +2,6 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * A unit fraction contains 1 in the numerator. The decimal representation of
@@ -36,40 +34,22 @@ public class Problem26 {
         }
         */
 
-        fractions.put(1, BigDecimal.valueOf(0.000123456756756756756756756));
-        int allMax = 0;
+        fractions.put(1, new BigDecimal("0.000123456756756756756756756"));
         for (Map.Entry<Integer, BigDecimal> p : fractions.entrySet()) {
             String decimal = p.getValue().toString().substring(2);
+            String repeat = "";
 
-            int max = 0;
-            for (int i = 0; i < decimal.length(); i++) {
-                String decimalSub = decimal.substring(i);
-                String repeat = "";
-                System.out.println("\nNext");
-                for (char c : decimalSub.toCharArray()) {
-                    repeat += c;
-                    System.out.println(repeat);
-                    Pattern pattern = Pattern.compile(repeat);
-                    Matcher m = pattern.matcher(decimalSub);
-                    for (int j = repeat.length(); j <= Math.floor(decimalSub.length() / repeat.length()); j += repeat.length()) {
-                        if ((i + j) < decimalSub.length()) {
-                            if (m.find(i + j)) {
-                                if (max < repeat.length()) {
-                                    max = repeat.length();
-                                }
-                            }
-                        }
-                    }
+            for(char d : decimal.toCharArray()) {
+                repeat += d;
+                int numRepeats = (int) Math.floor(decimal.length() / repeat.length());
+
+
+                for(int i = repeat.length() - 1; i <= numRepeats; i++) {
+                    String next = decimal.substring(i, i+repeat.length());
+                    System.out.println(next);
                 }
             }
-
-            System.out.println("Max length: " + max);
-            if (allMax < max) {
-                allMax = max;
-            }
         }
-
-        System.out.println(allMax);
     }
 
 }
