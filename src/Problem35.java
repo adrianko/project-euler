@@ -1,5 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * The number, 197, is called a circular prime because all rotations of the
@@ -28,27 +27,39 @@ public class Problem35 {
         return true;
     }
 
-    public static int factorial(int n) {
-        if (n == 1) {
-            return 1;
+    public static Set<Integer> rotate(int n) {
+        Set<Integer> rotations = new HashSet<>();
+        String nS = Integer.toString(n);
+
+        for(int i = 0; i < nS.length(); i++) {
+            nS = nS.substring(1) + nS.charAt(0);
+            rotations.add(Integer.parseInt(nS));
         }
 
-        return n * factorial(n - 1);
+        return rotations;
     }
 
     public static void main(String[] args) {
-        Set<Integer> allPrimes = new HashSet<Integer>();
+        int count = 0;
+        
         for (int i = 2; i < 1000000; i++) {
             if (isPrime(i)) {
-                allPrimes.add(i);
+                boolean prime = true;
+
+                for(int j : rotate(i)) {
+                    if(!isPrime(j)) {
+                        prime = false;
+                        break;
+                    }
+                }
+
+                if(prime) {
+                   count++;
+                }
             }
         }
 
-        for (int p : allPrimes) {
-            char[] pStr = String.valueOf(p).toCharArray();
-            int possPerms = factorial(pStr.length);
-
-        }
+        System.out.println(count);
     }
 
 }
