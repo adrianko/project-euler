@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The number, 197, is called a circular prime because all rotations of the
@@ -41,7 +42,7 @@ public class Problem35 {
 
     public static void main(String[] args) {
         int count = 0;
-        
+
         for (int i = 2; i < 1000000; i++) {
             if (isPrime(i)) {
                 boolean prime = true;
