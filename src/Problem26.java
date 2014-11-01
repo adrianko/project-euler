@@ -1,7 +1,5 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A unit fraction contains 1 in the numerator. The decimal representation of
@@ -26,30 +24,31 @@ import java.util.Map;
 public class Problem26 {
 
     public static void main(String[] args) {
-        Map<Integer, BigDecimal> fractions = new HashMap<Integer, BigDecimal>();
-
-        /*
-        for (int i = 2; i <= 1000; i++) {
-            fractions.put(i, BigDecimal.valueOf(i).pow(-1, new MathContext(1000)));
-        }
-        */
-
-        fractions.put(1, new BigDecimal("0.000123456756756756756756756"));
-        for (Map.Entry<Integer, BigDecimal> p : fractions.entrySet()) {
-            String decimal = p.getValue().toString().substring(2);
-            String repeat = "";
-
-            for(char d : decimal.toCharArray()) {
-                repeat += d;
-                int numRepeats = (int) Math.floor(decimal.length() / repeat.length());
-
-
-                for(int i = repeat.length() - 1; i <= numRepeats; i++) {
-                    String next = decimal.substring(i, i+repeat.length());
-                    System.out.println(next);
-                }
+        for (int i = 1; i < 1000; i++) {
+            if (isPrime(i)) {
+                BigDecimal d = BigDecimal.valueOf(i).pow(-1, new MathContext(1000));
             }
         }
+    }
+
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        } else if (n == 2 || n == 3) {
+            return true;
+        } else if (n % 2 == 0 || n % 3 == 0) {
+            return false;
+        }
+
+        long sqrtN = (long) Math.sqrt(n) + 1;
+
+        for (long i = 6L; i <= sqrtN; i += 6) {
+            if (n % (i - 1) == 0 || n % (i + 1) == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
