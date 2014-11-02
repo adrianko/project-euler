@@ -46,8 +46,7 @@ public class Problem22 {
     public static List<String> readFile(String file) {
         List<String> names = new LinkedList<String>();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             String[] namesSplit = line.split(",");
 

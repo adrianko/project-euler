@@ -57,8 +57,7 @@ public class Problem67 {
     public static ArrayList<ArrayList<Integer>> readFile(String file) {
         ArrayList<ArrayList<Integer>> rows = new ArrayList<ArrayList<Integer>>();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
 
             while ((line = br.readLine()) != null) {

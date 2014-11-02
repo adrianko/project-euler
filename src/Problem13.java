@@ -27,8 +27,7 @@ public class Problem13 {
     public static List<BigInteger> readNumberFile(String file) {
         List<BigInteger> numbers = new LinkedList<BigInteger>();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
                 numbers.add(new BigInteger(line));

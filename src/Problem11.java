@@ -52,8 +52,7 @@ public class Problem11 {
 
     public static int[][] readFile(String file) {
         int[][] grid = new int[20][20];
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             int i = 0;
             while ((line = br.readLine()) != null) {
