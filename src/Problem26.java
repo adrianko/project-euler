@@ -26,7 +26,7 @@ public class Problem26 {
     public static void main(String[] args) {
         for (int i = 1; i < 1000; i++) {
             if (isPrime(i)) {
-                BigDecimal d = BigDecimal.valueOf(i).pow(-1, new MathContext(1000));
+                System.out.println(BigDecimal.valueOf(i).pow(-1, new MathContext(1000)));
             }
         }
     }
