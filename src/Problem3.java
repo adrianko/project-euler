@@ -37,11 +37,10 @@ public class Problem3 {
                 continue;
             }
 
-            System.out.println(n + " " + i);
             n = n / i;
 
             if (isPrime(n)) {
-                System.out.println("Done: " + n);
+                System.out.println(n);
                 break;
             }
         }

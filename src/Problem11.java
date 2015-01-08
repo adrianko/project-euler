@@ -19,35 +19,31 @@ public class Problem11 {
         int[][] grid = readFile(System.getProperty("user.dir")
                 + "/external/problem11.txt");
 
-        System.out.println("\nAcross");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j <= 16; j++) {
                 products.add(grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]);
             }
         }
 
-        System.out.println("\nDown");
         for (int i = 0; i <= 16; i++) {
             for (int j = 0; j < 20; j++) {
                 products.add(grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]);
             }
         }
 
-        System.out.println("\nDiagonal right");
         for (int i = 0; i <= 16; i++) {
             for (int j = 0; j <= 16; j++) {
                 products.add(grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]);
             }
         }
 
-        System.out.println("\nDiagonal left");
         for (int i = 3; i < 20; i++) {
             for (int j = 0; j <= 16; j++) {
                 products.add(grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]);
             }
         }
 
-        System.out.println("\n\nMax: " + products.last());
+        System.out.println(products.last());
     }
 
     public static int[][] readFile(String file) {
