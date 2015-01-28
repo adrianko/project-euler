@@ -101,7 +101,7 @@ public class Problem89 {
         return total;
     }
 
-    public static String createNumeral() {
+    public static String createNumeral(int number) {
 
         return "";
     }
