@@ -51,4 +51,8 @@ public class Problem89 {
         
     }
     
+    public static int parseNumeral(String n) {
+        return 0;
+    }
+    
 }
