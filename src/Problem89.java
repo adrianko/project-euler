@@ -49,15 +49,16 @@ public class Problem89 {
     
     public static void main(String[] args) {
         System.out.println(parseNumeral("XXXXVIIII"));
+        System.out.println(parseNumeral("XIV"));
     }
     
     public static int parseNumeral(String n) {
         int total = 0;
-        
+
         for (char c : n.toCharArray()) {
             total += numeralConversion.get(c);
         }
-        
+
         return total;
     }
     
