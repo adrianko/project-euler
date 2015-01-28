@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * For a number written in Roman numerals to be considered valid there are basic 
@@ -36,7 +35,7 @@ public class Problem89 {
     
     public static Map<Character, Integer> numeralConversion;
     static {
-        Map<Character, Integer> pop = new HashMap<>();
+        Map<Character, Integer> pop = new LinkedHashMap<>();
         pop.put('I', 1);
         pop.put('V', 5);
         pop.put('X', 10);
@@ -55,8 +54,48 @@ public class Problem89 {
     public static int parseNumeral(String n) {
         int total = 0;
 
-        for (char c : n.toCharArray()) {
-            total += numeralConversion.get(c);
+        for (int i = 0; i < n.toCharArray().length; i++) {
+            char current = n.charAt(i);
+
+            if (current == 'I') {
+                if ((i + 1) < n.toCharArray().length) {
+                    char next = n.charAt(i + 1);
+
+                    if (next == 'V' || next == 'X') {
+                        total -= numeralConversion.get(current);
+                    } else {
+                        total += numeralConversion.get(current);
+                    }
+                } else {
+                    total += numeralConversion.get(current);
+                }
+            } else if (current == 'X') {
+                if ((i + 1) < n.toCharArray().length) {
+                    char next = n.charAt(i + 1);
+
+                    if (next == 'L' || next == 'C') {
+                        total -= numeralConversion.get(current);
+                    } else {
+                        total += numeralConversion.get(current);
+                    }
+                } else {
+                    total += numeralConversion.get(current);
+                }
+            } else if (current == 'C') {
+                if ((i + 1) < n.toCharArray().length) {
+                    char next = n.charAt(i + 1);
+
+                    if (next == 'D' || next == 'M') {
+                        total -= numeralConversion.get(current);
+                    } else {
+                        total += numeralConversion.get(current);
+                    }
+                } else {
+                    total += numeralConversion.get(current);
+                }
+            } else {
+                total += numeralConversion.get(current);
+            }
         }
 
         return total;
