@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * For a number written in Roman numerals to be considered valid there are basic 
  * rules which must be followed. Even though the rules allow some numbers to be 
@@ -30,4 +33,22 @@
  * than four consecutive identical units.
  */
 public class Problem89 {
+    
+    public static Map<Character, Integer> numeralConversion;
+    static {
+        Map<Character, Integer> pop = new HashMap<>();
+        pop.put('I', 1);
+        pop.put('V', 5);
+        pop.put('X', 10);
+        pop.put('L', 50);
+        pop.put('C', 100);
+        pop.put('D', 500);
+        pop.put('M', 1000);
+        numeralConversion = pop;
+    }
+    
+    public static void main(String[] args) {
+        
+    }
+    
 }
