@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/adrianko/project-euler.svg?branch=master)](https://travis-ci.org/adrianko/project-euler)
