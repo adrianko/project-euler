@@ -45,6 +45,15 @@ public class Problem89 {
         pop.put('M', 1000);
         numeralConversion = pop;
     }
+
+    public static Map<Character, ArrayList<Character>> following;
+    static {
+        Map<Character, ArrayList<Character>> pop = new HashMap<>();
+        pop.put('I', new ArrayList<>(Arrays.asList('V', 'X')));
+        pop.put('X', new ArrayList<>(Arrays.asList('L', 'C')));
+        pop.put('C', new ArrayList<>(Arrays.asList('D', 'M')));
+        following = pop;
+    }
     
     public static void main(String[] args) {
         System.out.println(parseNumeral("XXXXVIIII"));
