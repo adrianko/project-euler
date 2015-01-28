@@ -48,11 +48,17 @@ public class Problem89 {
     }
     
     public static void main(String[] args) {
-        
+        System.out.println(parseNumeral("XXXXVIIII"));
     }
     
     public static int parseNumeral(String n) {
-        return 0;
+        int total = 0;
+        
+        for (char c : n.toCharArray()) {
+            total += numeralConversion.get(c);
+        }
+        
+        return total;
     }
     
 }
