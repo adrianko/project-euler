@@ -112,8 +112,19 @@ public class Problem89 {
     }
 
     public static String createNumeral(int number) {
+        String numeral = "";
 
-        return "";
+        while (number > 0) {
+            for (Map.Entry<Character, Integer> pair : numeralConversion.entrySet()) {
+                if (pair.getValue() < number) {
+                    numeral += pair.getKey().toString();
+                    number -= pair.getValue();
+                    System.out.println(numeral + " " + number);
+                }
+            }
+        }
+
+        return numeral;
     }
     
 }
