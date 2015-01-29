@@ -36,13 +36,13 @@ public class Problem89 {
     public static Map<Character, Integer> numeralConversion;
     static {
         Map<Character, Integer> pop = new LinkedHashMap<>();
-        pop.put('I', 1);
-        pop.put('V', 5);
-        pop.put('X', 10);
-        pop.put('L', 50);
-        pop.put('C', 100);
-        pop.put('D', 500);
         pop.put('M', 1000);
+        pop.put('D', 500);
+        pop.put('C', 100);
+        pop.put('L', 50);
+        pop.put('X', 10);
+        pop.put('V', 5);
+        pop.put('I', 1);
         numeralConversion = pop;
     }
 
