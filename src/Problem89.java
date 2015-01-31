@@ -59,6 +59,7 @@ public class Problem89 {
         System.out.println(parseNumeral("XXXXVIIII"));
         System.out.println(parseNumeral("XIV"));
         System.out.println(createNumeral(14));
+        System.out.println(createNumeral(19));
     }
     
     public static int parseNumeral(String n) {
