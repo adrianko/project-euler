@@ -1,6 +1,3 @@
-import java.math.BigDecimal;
-import java.math.MathContext;
-
 /**
  * A unit fraction contains 1 in the numerator. The decimal representation of
  * the unit fractions with denominators 2 to 10 are given:
@@ -26,5 +23,5 @@ public class Problem26 {
 	public static void main(String[] args) {
 
 	}
-	
+
 }
