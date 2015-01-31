@@ -24,32 +24,7 @@ import java.math.MathContext;
 public class Problem26 {
 
 	public static void main(String[] args) {
-		for (int i = 1; i < 1000; i++) {
-			if (isPrime(i)) {
-				System.out.println(i + ": "
-						+ BigDecimal.valueOf(i).pow(-1, new MathContext(1000)));
-			}
-		}
+
 	}
-
-	public static boolean isPrime(int n) {
-		if (n < 2) {
-			return false;
-		} else if (n == 2 || n == 3) {
-			return true;
-		} else if (n % 2 == 0 || n % 3 == 0) {
-			return false;
-		}
-
-		long sqrtN = (long) Math.sqrt(n) + 1;
-
-		for (long i = 6L; i <= sqrtN; i += 6) {
-			if (n % (i - 1) == 0 || n % (i + 1) == 0) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
+	
 }
