@@ -1,3 +1,5 @@
+import java.util.TreeSet;
+
 /**
  * A unit fraction contains 1 in the numerator. The decimal representation of
  * the unit fractions with denominators 2 to 10 are given:
@@ -21,6 +23,32 @@
 public class Problem26 {
 
 	public static void main(String[] args) {
+		TreeSet<Integer> primes = primeSieve(1000);
+	}
+
+	public static TreeSet<Integer> primeSieve(int limit) {
+		boolean[] numberList = new boolean[limit + 1];
+
+		for(int i = 2; i <= limit; i++) {
+			numberList[i] = true;
+		}
+
+		for(int i = 2; i * i <= limit; i++) {
+			if(numberList[i]) {
+				for(int j = i; i * j <= limit; j++) {
+					numberList[i * j] = false;
+				}
+			}
+		}
+
+		TreeSet<Integer> primeList = new TreeSet<Integer>();
+		for(int i = 2; i <= limit; i++) {
+			if(numberList[i]) {
+				primeList.add(i);
+			}
+		}
+
+		return primeList;
 
 	}
 
