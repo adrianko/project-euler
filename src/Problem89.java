@@ -119,7 +119,6 @@ public class Problem89 {
                 if (pair.getValue() <= number) {
                     numeral += pair.getKey().toString();
                     number -= pair.getValue();
-                    System.out.println(numeral + " " + number);
                 }
             }
         }
