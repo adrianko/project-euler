@@ -116,7 +116,7 @@ public class Problem89 {
 
         while (number > 0) {
             for (Map.Entry<Character, Integer> pair : numeralConversion.entrySet()) {
-                if (pair.getValue() < number) {
+                if (pair.getValue() <= number) {
                     numeral += pair.getKey().toString();
                     number -= pair.getValue();
                     System.out.println(numeral + " " + number);
