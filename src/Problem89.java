@@ -128,25 +128,7 @@ public class Problem89 {
 
         while (number > 0) {
             for (Map.Entry<String, Integer> pair : numeralConversion.entrySet()) {
-                if (number == 4) {
-                    numeral += "IV";
-                    number -= number;
-                } else if (number == 9) {
-                    numeral += "IX";
-                    number -= number;
-                } else if (number == 40) {
-                    numeral += "XL";
-                    number -= number;
-                } else if(number == 90) {
-                    numeral += "XC";
-                    number -= number;
-                } else if (number == 400) {
-                    numeral += "CD";
-                    number -= number;
-                } else if (number == 900) {
-                    numeral += "CM";
-                    number -= number;
-                } else if (pair.getValue() <= number) {
+                if (pair.getValue() <= number) {
                     numeral += pair.getKey();
                     number -= pair.getValue();
                 }
