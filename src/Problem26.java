@@ -23,7 +23,31 @@ import java.util.TreeSet;
 public class Problem26 {
 
 	public static void main(String[] args) {
-		TreeSet<Integer> primes = primeSieve(1000);
+		int maxLen = 0;
+		int ans = 0;
+
+		for (int n : primeSieve(1000).descendingSet()){
+			int j = 1;
+
+			for (int i = 0; i < n; i++) {
+				j = (j * 10) % n;
+			}
+
+			int k = j;
+			int len = 0;
+
+			do {
+				j = (j * 10) % n;
+				len++;
+			} while (j != k);
+
+			if (len > maxLen) {
+				ans = n;
+				maxLen = len;
+			}
+		}
+
+		System.out.println(ans);
 	}
 
 	public static TreeSet<Integer> primeSieve(int limit) {
