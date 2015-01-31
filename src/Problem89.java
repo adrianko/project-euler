@@ -67,7 +67,13 @@ public class Problem89 {
     }
     
     public static void main(String[] args) {
-
+        try {
+            readFile("external/problem89.txt").forEach(l -> {
+                System.out.println(l);
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     public static int parseNumeral(String n) {
