@@ -68,44 +68,49 @@ public class Problem89 {
         for (int i = 0; i < n.toCharArray().length; i++) {
             String current = String.valueOf(n.charAt(i));
 
-            if (current.equals("I")) {
-                if ((i + 1) < n.toCharArray().length) {
-                    String next = String.valueOf(n.charAt(i + 1));
+            switch(current) {
+                case "I":
+                    if ((i + 1) < n.toCharArray().length) {
+                        String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next.equals("V") || next.equals("X")) {
-                        total -= numeralConversion.get(current);
+                        if (next.equals("V") || next.equals("X")) {
+                            total -= numeralConversion.get(current);
+                        } else {
+                            total += numeralConversion.get(current);
+                        }
                     } else {
                         total += numeralConversion.get(current);
                     }
-                } else {
-                    total += numeralConversion.get(current);
-                }
-            } else if (current.equals("X")) {
-                if ((i + 1) < n.toCharArray().length) {
-                    String next = String.valueOf(n.charAt(i + 1));
+                    break;
+                case "X":
+                    if ((i + 1) < n.toCharArray().length) {
+                        String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next.equals("L") || next.equals("C")) {
-                        total -= numeralConversion.get(current);
+                        if (next.equals("L") || next.equals("C")) {
+                            total -= numeralConversion.get(current);
+                        } else {
+                            total += numeralConversion.get(current);
+                        }
                     } else {
                         total += numeralConversion.get(current);
                     }
-                } else {
-                    total += numeralConversion.get(current);
-                }
-            } else if (current.equals("C")) {
-                if ((i + 1) < n.toCharArray().length) {
-                    String next = String.valueOf(n.charAt(i + 1));
+                    break;
+                case "C":
+                    if ((i + 1) < n.toCharArray().length) {
+                        String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next.equals("D") || next.equals("M")) {
-                        total -= numeralConversion.get(current);
+                        if (next.equals("D") || next.equals("M")) {
+                            total -= numeralConversion.get(current);
+                        } else {
+                            total += numeralConversion.get(current);
+                        }
                     } else {
                         total += numeralConversion.get(current);
                     }
-                } else {
+                    break;
+                default:
                     total += numeralConversion.get(current);
-                }
-            } else {
-                total += numeralConversion.get(current);
+                    break;
             }
         }
 
