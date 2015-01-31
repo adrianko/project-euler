@@ -52,6 +52,7 @@ public class Problem26 {
 
 	public static TreeSet<Integer> primeSieve(int limit) {
 		boolean[] numberList = new boolean[limit + 1];
+		TreeSet<Integer> primeList = new TreeSet<>();
 
 		for(int i = 2; i <= limit; i++) {
 			numberList[i] = true;
@@ -65,7 +66,6 @@ public class Problem26 {
 			}
 		}
 
-		TreeSet<Integer> primeList = new TreeSet<Integer>();
 		for(int i = 2; i <= limit; i++) {
 			if(numberList[i]) {
 				primeList.add(i);
@@ -73,7 +73,6 @@ public class Problem26 {
 		}
 
 		return primeList;
-
 	}
 
 }
