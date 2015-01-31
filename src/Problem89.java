@@ -1,4 +1,9 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * For a number written in Roman numerals to be considered valid there are basic 
@@ -62,7 +67,7 @@ public class Problem89 {
     }
     
     public static void main(String[] args) {
-        
+
     }
     
     public static int parseNumeral(String n) {
@@ -134,6 +139,10 @@ public class Problem89 {
         }
 
         return numeral;
+    }
+
+    public static Stream<String> readFile(String filename) throws IOException {
+        return Files.lines(Paths.get(filename));
     }
     
 }
