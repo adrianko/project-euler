@@ -33,16 +33,16 @@ import java.util.*;
  */
 public class Problem89 {
     
-    public static Map<Character, Integer> numeralConversion;
+    public static Map<String, Integer> numeralConversion;
     static {
-        Map<Character, Integer> pop = new LinkedHashMap<>();
-        pop.put('M', 1000);
-        pop.put('D', 500);
-        pop.put('C', 100);
-        pop.put('L', 50);
-        pop.put('X', 10);
-        pop.put('V', 5);
-        pop.put('I', 1);
+        Map<String, Integer> pop = new LinkedHashMap<>();
+        pop.put("M", 1000);
+        pop.put("D", 500);
+        pop.put("C", 100);
+        pop.put("L", 50);
+        pop.put("X", 10);
+        pop.put("V", 5);
+        pop.put("I", 1);
         numeralConversion = pop;
     }
 
@@ -66,13 +66,13 @@ public class Problem89 {
         int total = 0;
 
         for (int i = 0; i < n.toCharArray().length; i++) {
-            char current = n.charAt(i);
+            String current = String.valueOf(n.charAt(i));
 
-            if (current == 'I') {
+            if (current.equals("I")) {
                 if ((i + 1) < n.toCharArray().length) {
-                    char next = n.charAt(i + 1);
+                    String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next == 'V' || next == 'X') {
+                    if (next.equals("V") || next.equals("X")) {
                         total -= numeralConversion.get(current);
                     } else {
                         total += numeralConversion.get(current);
@@ -80,11 +80,11 @@ public class Problem89 {
                 } else {
                     total += numeralConversion.get(current);
                 }
-            } else if (current == 'X') {
+            } else if (current.equals("X")) {
                 if ((i + 1) < n.toCharArray().length) {
-                    char next = n.charAt(i + 1);
+                    String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next == 'L' || next == 'C') {
+                    if (next.equals("L") || next.equals("C")) {
                         total -= numeralConversion.get(current);
                     } else {
                         total += numeralConversion.get(current);
@@ -92,11 +92,11 @@ public class Problem89 {
                 } else {
                     total += numeralConversion.get(current);
                 }
-            } else if (current == 'C') {
+            } else if (current.equals("C")) {
                 if ((i + 1) < n.toCharArray().length) {
-                    char next = n.charAt(i + 1);
+                    String next = String.valueOf(n.charAt(i + 1));
 
-                    if (next == 'D' || next == 'M') {
+                    if (next.equals("D") || next.equals("M")) {
                         total -= numeralConversion.get(current);
                     } else {
                         total += numeralConversion.get(current);
@@ -116,7 +116,7 @@ public class Problem89 {
         String numeral = "";
 
         while (number > 0) {
-            for (Map.Entry<Character, Integer> pair : numeralConversion.entrySet()) {
+            for (Map.Entry<String, Integer> pair : numeralConversion.entrySet()) {
                 if (number == 4) {
                     numeral += "IV";
                     number -= number;
@@ -136,7 +136,7 @@ public class Problem89 {
                     numeral += "CM";
                     number -= number;
                 } else if (pair.getValue() <= number) {
-                    numeral += pair.getKey().toString();
+                    numeral += pair.getKey();
                     number -= pair.getValue();
                 }
             }
