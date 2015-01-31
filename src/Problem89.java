@@ -68,11 +68,10 @@ public class Problem89 {
     
     public static void main(String[] args) {
         int counter = 0;
-        
+
         try {
             for (String l : readFile("external/problem89.txt").collect(Collectors.toList())) {
-                String compressedNumeral = createNumeral(parseNumeral(l));
-                counter += l.length() - compressedNumeral.length();
+                counter += l.length() - createNumeral(parseNumeral(l)).length();
             }
 
             System.out.println(counter);
