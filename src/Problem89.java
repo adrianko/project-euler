@@ -64,8 +64,10 @@ public class Problem89 {
     public static void main(String[] args) {
         System.out.println(parseNumeral("XXXXVIIII"));
         System.out.println(parseNumeral("XIV"));
+        System.out.println(parseNumeral("CCXLV"));
         System.out.println(createNumeral(14));
         System.out.println(createNumeral(19));
+        System.out.println(createNumeral(203));
     }
     
     public static int parseNumeral(String n) {
@@ -131,6 +133,7 @@ public class Problem89 {
                 if (pair.getValue() <= number) {
                     numeral += pair.getKey();
                     number -= pair.getValue();
+                    break;
                 }
             }
         }
