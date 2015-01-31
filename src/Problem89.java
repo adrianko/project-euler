@@ -37,11 +37,17 @@ public class Problem89 {
     static {
         Map<String, Integer> pop = new LinkedHashMap<>();
         pop.put("M", 1000);
+        pop.put("CM", 900);
         pop.put("D", 500);
+        pop.put("CD", 400);
         pop.put("C", 100);
+        pop.put("XC", 90);
         pop.put("L", 50);
+        pop.put("XL", 40);
         pop.put("X", 10);
+        pop.put("IX", 9);
         pop.put("V", 5);
+        pop.put("IV", 4);
         pop.put("I", 1);
         numeralConversion = pop;
     }
