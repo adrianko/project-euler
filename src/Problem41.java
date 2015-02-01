@@ -1,5 +1,3 @@
-import java.util.TreeSet;
-
 /**
  * We shall say that an n-digit number is pandigital if it makes use of all the
  * digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is
@@ -10,7 +8,15 @@ import java.util.TreeSet;
 public class Problem41 {
 
     public static void main(String[] args) {
-
+        //a little slow but it works
+        for (int i = 987654321; i >= 2; i--) {
+            if (isPandigital(i)) {
+                if(isPrime(i)) {
+                    System.out.println(i);
+                    break;
+                }
+            }
+        }
     }
 
     public static boolean isPandigital(int n) {
