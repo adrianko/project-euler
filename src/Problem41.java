@@ -10,13 +10,7 @@ import java.util.TreeSet;
 public class Problem41 {
 
     public static void main(String[] args) {
-        TreeSet<Integer> primes = primeSieve(1000000000);
 
-        for (int p : primes.descendingSet()) {
-            if (isPandigital(p)) {
-                
-            }
-        }
     }
 
     public static boolean isPandigital(int n) {
@@ -31,29 +25,24 @@ public class Problem41 {
         return true;
     }
 
-    public static TreeSet<Integer> primeSieve(int limit) {
-        boolean[] numberList = new boolean[limit + 1];
-        TreeSet<Integer> primeList = new TreeSet<>();
+    public static boolean isPrime(long n) {
+        if (n < 2)
+            return false;
 
-        for(int i = 2; i <= limit; i++) {
-            numberList[i] = true;
+        if (n == 2 || n == 3)
+            return true;
+
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+
+        long sqrtN = (long) Math.sqrt(n) + 1;
+
+        for (long i = 6L; i <= sqrtN; i += 6) {
+            if (n % (i - 1) == 0 || n % (i + 1) == 0)
+                return false;
         }
 
-        for(int i = 2; i * i <= limit; i++) {
-            if(numberList[i]) {
-                for(int j = i; i * j <= limit; j++) {
-                    numberList[i * j] = false;
-                }
-            }
-        }
-
-        for(int i = 2; i <= limit; i++) {
-            if(numberList[i]) {
-                primeList.add(i);
-            }
-        }
-
-        return primeList;
+        return true;
     }
 
 }
