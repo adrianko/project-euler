@@ -15,4 +15,23 @@
  */
 public class Problem30 {
 
+    public static void main(String[] args) {
+        int total = 0;
+
+        for (int i = 2; i <= (int) (Math.pow(9, 5) * 5); i++) {
+            char[] digits = String.valueOf(i).toCharArray();
+            int sum = 0;
+
+            for (char d : digits) {
+                sum += Math.pow(Character.getNumericValue(d), 5);
+            }
+
+            if (sum == i) {
+                total += i;
+            }
+        }
+
+        System.out.println(total);
+    }
+
 }
