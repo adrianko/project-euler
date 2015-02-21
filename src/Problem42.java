@@ -43,7 +43,7 @@ public class Problem42 {
                 scores.get(score).add(word);
             }
 
-            System.out.println(scores);
+            System.out.println(scores.keySet());
         } catch (IOException e) {
             e.printStackTrace();
         }
