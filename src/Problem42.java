@@ -50,10 +50,7 @@ public class Problem42 {
                 n++;
             }
 
-            int total = triangles.stream().mapToInt(t -> {
-                if (scores.containsKey(t)) return scores.get(t).size();
-                return 0;
-            }).sum();
+            int total = triangles.stream().mapToInt(t -> scores.containsKey(t) ? scores.get(t).size() : 0).sum();
             System.out.println(total);
         } catch (IOException e) {
             e.printStackTrace();
