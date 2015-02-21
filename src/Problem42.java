@@ -22,42 +22,44 @@ public class Problem42 {
     public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     public static void main(String[] args) {
+        Map<Integer, Set<String>> scores = new HashMap<>();
+
+        for (String w : readFile("external/problem42.txt").collect(Collectors.toList()).toString().split(",")) {
+            String word = w.replaceAll("(\\[|\\]|\")", "").trim().toLowerCase();
+            int score = 0;
+
+            for (char c : word.toCharArray()) {
+                score += alphabet.indexOf(c) + 1;
+            }
+
+            if (!scores.containsKey(score)) {
+                scores.put(score, new HashSet<>());
+            }
+
+            scores.get(score).add(word);
+        }
+
+        TreeSet<Integer> requiredScores = new TreeSet<>(scores.keySet());
+        TreeSet<Integer> triangles = new TreeSet<>();
+        triangles.add(1);
+        int n = 2;
+
+        while (triangles.last() <= requiredScores.last()) {
+            triangles.add((int) ((0.5 * n) * (n + 1)));
+            n++;
+        }
+
+        int total = triangles.stream().filter(scores::containsKey).mapToInt(t -> scores.get(t).size()).sum();
+        System.out.println(total);
+    }
+
+    public static Stream<String> readFile(String filename) {
         try {
-            Map<Integer, Set<String>> scores = new HashMap<>();
-
-            for (String w : readFile("external/problem42.txt").collect(Collectors.toList()).toString().split(",")) {
-                String word = w.replaceAll("(\\[|\\]|\")", "").trim().toLowerCase();
-                int score = 0;
-
-                for (char c : word.toCharArray()) {
-                    score += alphabet.indexOf(c) + 1;
-                }
-
-                if (!scores.containsKey(score)) {
-                    scores.put(score, new HashSet<>());
-                }
-
-                scores.get(score).add(word);
-            }
-
-            TreeSet<Integer> requiredScores = new TreeSet<>(scores.keySet());
-            TreeSet<Integer> triangles = new TreeSet<>();
-            triangles.add(1);
-            int n = 2;
-
-            while (triangles.last() <= requiredScores.last()) {
-                triangles.add((int) ((0.5 * n) * (n + 1)));
-                n++;
-            }
-
-            int total = triangles.stream().filter(scores::containsKey).mapToInt(t -> scores.get(t).size()).sum();
-            System.out.println(total);
+            return Files.lines(Paths.get(filename));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static Stream<String> readFile(String filename) throws IOException {
-        return Files.lines(Paths.get(filename));
+        
+        return null;
     }
 }
