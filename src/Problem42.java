@@ -41,7 +41,14 @@ public class Problem42 {
             }
 
             TreeSet<Integer> requiredScores = new TreeSet<>(scores.keySet());
-            System.out.println(requiredScores.last());
+            TreeSet<Integer> triangles = new TreeSet<>();
+            triangles.add(1);
+            int n = 2;
+
+            while (triangles.last() <= requiredScores.last()) {
+                triangles.add((int) ((0.5 * n) * (n + 1)));
+                n++;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
