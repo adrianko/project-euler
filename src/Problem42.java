@@ -1,10 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,7 +40,8 @@ public class Problem42 {
                 scores.get(score).add(word);
             }
 
-            System.out.println(scores.keySet());
+            TreeSet<Integer> requiredScores = new TreeSet<>(scores.keySet());
+            System.out.println(requiredScores.last());
         } catch (IOException e) {
             e.printStackTrace();
         }
