@@ -49,6 +49,12 @@ public class Problem42 {
                 triangles.add((int) ((0.5 * n) * (n + 1)));
                 n++;
             }
+
+            int total = triangles.stream().mapToInt(t -> {
+                if (scores.containsKey(t)) return scores.get(t).size();
+                return 0;
+            }).sum();
+            System.out.println(total);
         } catch (IOException e) {
             e.printStackTrace();
         }
