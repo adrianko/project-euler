@@ -26,11 +26,7 @@ public class Problem42 {
 
         for (String w : readFile("external/problem42.txt").collect(Collectors.toList()).toString().split(",")) {
             String word = w.replaceAll("(\\[|\\]|\")", "").trim().toLowerCase();
-            int score = 0;
-
-            for (char c : word.toCharArray()) {
-                score += alphabet.indexOf(c) + 1;
-            }
+            int score = word.chars().mapToObj(c -> (char) c).mapToInt(c -> alphabet.indexOf(c) + 1).sum();
 
             if (!scores.containsKey(score)) {
                 scores.put(score, new HashSet<>());
@@ -59,7 +55,7 @@ public class Problem42 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         return null;
     }
 }
