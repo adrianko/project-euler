@@ -1,4 +1,3 @@
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -14,7 +13,11 @@ import java.util.TreeSet;
 public class Problem50 {
 
     public static void main(String[] args) {
-        
+        TreeSet<Integer> primes = primeSieve(1000);
+
+        for (int p : primes) {
+            int total = 0;
+        }
     }
 
     public static TreeSet<Integer> primeSieve(int limit) {
