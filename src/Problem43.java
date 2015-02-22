@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order,
  * but it also has a rather interesting sub-string divisibility property.
@@ -17,13 +20,11 @@
 public class Problem43 {
 
     public static void main(String[] args) {
-        long lowerLimit = 123456789L;
-        long upperLimit = 9876543210L;
-        long total = 0;
+        Set<String> digits = new HashSet<>(); //permutate("0123456789");
+        digits.add("1406357289");
+        Set<Long> total = new HashSet<>();
 
-        for (long i = lowerLimit; i <= upperLimit; i++) {
-            String s = Long.toString(i);
-
+        for (String s : digits) {
             if (getDigits(s, 2) % 2 != 0) continue;
             if (getDigits(s, 3) % 3 != 0) continue;
             if (getDigits(s, 4) % 5 != 0) continue;
@@ -32,18 +33,30 @@ public class Problem43 {
             if (getDigits(s, 7) % 13 != 0) continue;
             if (getDigits(s, 8) % 17 != 0) continue;
 
-            total += i;
-            System.out.println(i);
+            total.add(Long.getLong(s));
         }
 
         System.out.println(total);
     }
 
     public static int getDigits(String s, int start) {
-        if (start > s.length()) return 1;
-        if ((start + 1) > s.length()) return 1;
-        if ((start + 2) > s.length()) return 1;
         return Integer.parseInt(s.substring(start - 1, start + 2));
+    }
+
+    public static Set<String> permutate(String str) {
+        return permutate("", str, new HashSet<String>());
+    }
+
+    private static Set<String> permutate(String prefix, String str, Set<String> perms) {
+        if (str.length() == 0) {
+            perms.add(prefix);
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            permutate(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1), perms);
+        }
+
+        return perms;
     }
 
 }
