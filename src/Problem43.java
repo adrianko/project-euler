@@ -35,7 +35,7 @@ public class Problem43 {
             total.add(Long.parseLong(s));
         }
 
-        long result = total.stream().mapToLong(d -> d).sum();
+        long result = total.stream().reduce(0L, (a, b) -> a + b);
         System.out.println(result);
     }
 
