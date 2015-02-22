@@ -20,8 +20,7 @@ import java.util.Set;
 public class Problem43 {
 
     public static void main(String[] args) {
-        Set<String> digits = new HashSet<>(); //permutate("0123456789");
-        digits.add("1406357289");
+        Set<String> digits = permutate("0123456789");
         Set<Long> total = new HashSet<>();
 
         for (String s : digits) {
@@ -33,10 +32,11 @@ public class Problem43 {
             if (getDigits(s, 7) % 13 != 0) continue;
             if (getDigits(s, 8) % 17 != 0) continue;
 
-            total.add(Long.getLong(s));
+            total.add(Long.parseLong(s));
         }
 
-        System.out.println(total);
+        long result = total.stream().mapToLong(d -> d).sum();
+        System.out.println(result);
     }
 
     public static int getDigits(String s, int start) {
@@ -44,7 +44,7 @@ public class Problem43 {
     }
 
     public static Set<String> permutate(String str) {
-        return permutate("", str, new HashSet<String>());
+        return permutate("", str, new HashSet<>());
     }
 
     private static Set<String> permutate(String prefix, String str, Set<String> perms) {
