@@ -23,10 +23,20 @@ public class Problem43 {
 
         for (long i = lowerLimit; i <= upperLimit; i++) {
             String s = Long.toString(i);
-            
+
+            if (getDigits(s, 2) % 2 != 0) continue;
+            if (getDigits(s, 3) % 3 != 0) continue;
+            if (getDigits(s, 4) % 5 != 0) continue;
+            if (getDigits(s, 5) % 7 != 0) continue;
+            if (getDigits(s, 6) % 11 != 0) continue;
+            if (getDigits(s, 7) % 13 != 0) continue;
+            if (getDigits(s, 8) % 17 != 0) continue;
 
             total += i;
+            System.out.println(i);
         }
+
+        System.out.println(total);
     }
 
     public static int getDigits(String s, int start) {
