@@ -23,11 +23,14 @@ public class Problem43 {
 
         for (long i = lowerLimit; i <= upperLimit; i++) {
             String s = Long.toString(i);
-
-            System.out.println(s.substring(1, 4));
+            
 
             total += i;
         }
+    }
+
+    public static int getDigits(String s, int start) {
+        return Integer.parseInt(s.substring(start - 1, start + 2));
     }
 
 }
