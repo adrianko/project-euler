@@ -13,11 +13,36 @@ import java.util.TreeSet;
 public class Problem50 {
 
     public static void main(String[] args) {
-        TreeSet<Integer> primes = primeSieve(1000);
+        int limit = 1000000;
+        TreeSet<Integer> primes = primeSieve(limit);
+        int stash = 0;
+        int currentCount = 0;
 
-        for (int p : primes) {
-            int total = 0;
+        for (int s : primes) {
+            int start = 0;
+            int count = 0;
+
+            for (int p : primes) {
+                if (s <= p) {
+                    start += p;
+                    count++;
+
+                    if (primes.contains(start) && start != s && count > currentCount) {
+                        currentCount = count;
+
+                        if (start > stash) {
+                            stash = start;
+                        }
+                    }
+
+                    if (start >= limit) {
+                        break;
+                    }
+                }
+            }
         }
+
+        System.out.println(stash);
     }
 
     public static TreeSet<Integer> primeSieve(int limit) {
