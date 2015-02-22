@@ -17,8 +17,8 @@
 public class Problem43 {
 
     public static void main(String[] args) {
-        long lowerLimit = 1406357289L;//123456789L;
-        long upperLimit = 1406357289L;//9876543210L;
+        long lowerLimit = 123456789L;
+        long upperLimit = 9876543210L;
         long total = 0;
 
         for (long i = lowerLimit; i <= upperLimit; i++) {
@@ -40,6 +40,9 @@ public class Problem43 {
     }
 
     public static int getDigits(String s, int start) {
+        if (start > s.length()) return 1;
+        if ((start + 1) > s.length()) return 1;
+        if ((start + 2) > s.length()) return 1;
         return Integer.parseInt(s.substring(start - 1, start + 2));
     }
 
