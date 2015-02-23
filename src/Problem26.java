@@ -54,20 +54,20 @@ public class Problem26 {
 		boolean[] numberList = new boolean[limit + 1];
 		TreeSet<Integer> primeList = new TreeSet<>();
 
-		for(int i = 2; i <= limit; i++) {
+		for (int i = 2; i <= limit; i++) {
 			numberList[i] = true;
 		}
 
-		for(int i = 2; i * i <= limit; i++) {
-			if(numberList[i]) {
-				for(int j = i; i * j <= limit; j++) {
+		for (int i = 2; i * i <= limit; i++) {
+			if (numberList[i]) {
+				for (int j = i; i * j <= limit; j++) {
 					numberList[i * j] = false;
 				}
 			}
 		}
 
-		for(int i = 2; i <= limit; i++) {
-			if(numberList[i]) {
+		for (int i = 2; i <= limit; i++) {
+			if (numberList[i]) {
 				primeList.add(i);
 			}
 		}
