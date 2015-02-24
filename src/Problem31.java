@@ -1,3 +1,7 @@
+import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.Arrays;
+
 /**
  * In England the currency is made up of pound, £, and pence, p, and there are 
  * eight coins in general circulation:
@@ -10,5 +14,10 @@
  * How many different ways can £2 be made using any number of coins?
  */
 public class Problem31 {
+    
+    public static void main(String[] args) {
+        Integer[] a = {200, 100, 50, 20, 10, 5, 2, 1};
+        Set<Integer> coins = new LinkedHashSet<>(Arrays.asList(a));
+    }
 
 }
