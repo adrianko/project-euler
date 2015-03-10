@@ -16,8 +16,7 @@ import java.util.Arrays;
 public class Problem31 {
     
     public static void main(String[] args) {
-        Integer[] a = {200, 100, 50, 20, 10, 5, 2, 1};
-        Set<Integer> coins = new LinkedHashSet<>(Arrays.asList(a));
+        Set<Integer> coins = new LinkedHashSet<>(Arrays.asList(200, 100, 50, 20, 10, 5, 2, 1));
     }
 
 }
