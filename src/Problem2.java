@@ -24,9 +24,11 @@ public class Problem2 {
                 total += t1;
             } else {
                 c = t1 + t2;
+                
                 if (c % 2 == 0) {
                     total += c;
                 }
+                
                 t2 = t1;
                 t1 = c;
             }
